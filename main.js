@@ -57,12 +57,18 @@ function publishResult(player, ai, result) {
     }
 }
 
+function endGame() {
+    document.querySelector(`[data-option="${game.playerHand}"]`).style.boxShadow = "";
+    game.playerHand = ""
+}
+
 function startGame() {
     if (!game.playerHand) return alert("Wybierz głoń!");
     game.aiHand = aiChoice();
     const gameResult = checkResult(game.playerHand, game.aiHand);
     //console.log(gameResult)
-    publishResult(game.playerHand, game.aiHand, gameResult)
+    publishResult(game.playerHand, game.aiHand, gameResult);
+    endGame()
 }
 
 hands.forEach(hand => hand.addEventListener('click', handSelection))
