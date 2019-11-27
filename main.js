@@ -27,7 +27,7 @@ function checkResult(player, ai) {
     if (player === ai) {
         //console.log("remis")
         return 'draw'
-    } else if ((player === "papier" && ai === "kamień") || (player === "kamień" && ai === "nożyczki") || (player === "nożyczki" && ai === "papier")) {
+    } else if ((player === "papier" && ai === "kamień") || (player === "kamień" && ai === "nożyce") || (player === "nożyce" && ai === "papier")) {
         //console.log("wygrałeś")
         return 'win'
     } else {
