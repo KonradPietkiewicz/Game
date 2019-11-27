@@ -23,9 +23,24 @@ function aiChoice() {
     return hands[Math.floor(Math.random() * 3)].dataset.option;
 }
 
+function checkResult(player, ai) {
+    if (player === ai) {
+        //console.log("remis")
+        return 'draw'
+    } else if ((player === "papier" && ai === "kamień") || (player === "kamień" && ai === "nożyczki") || (player === "nożyczki" && ai === "papier")) {
+        //console.log("wygrałeś")
+        return 'win'
+    } else {
+        //console.log("przegrałeś")
+        return 'losse'
+    }
+}
+
 function startGame() {
-    if (!game.playerHand) return alert("Wybierz głoń!")
-    game.aiHand = aiChoice()
+    if (!game.playerHand) return alert("Wybierz głoń!");
+    game.aiHand = aiChoice();
+    const gameResult = checkResult(game.playerHand, game.aiHand)
+    console.log(gameResult)
 }
 
 hands.forEach(hand => hand.addEventListener('click', handSelection))
